@@ -1,4 +1,6 @@
-/* Save as: style.css */
+/* ==========================================
+   GLOBAL DESIGN VARIABLES & MIXED THEME
+   ========================================== */
 :root {
     --bg-dark: #0f172a;
     --bg-light: #f8fafc;
@@ -23,12 +25,15 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.6;
+    overflow-x: hidden; /* Prevents awkward horizontal breaking / scrolling */
 }
 
-/* Global Header (Dark) */
+/* ==========================================
+   HEADER & NAVIGATION BAR LAYOUT
+   ========================================== */
 header {
     background-color: var(--bg-dark);
-    padding: 1.2rem 5%;
+    padding: 1rem 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -40,21 +45,17 @@ header {
 
 .logo {
     color: var(--text-white);
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Scales text fluidly across screen widths */
     font-weight: 700;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .logo span {
     color: var(--accent);
-}
-
-nav {
-    display: flex;
-    align-items: center;
 }
 
 nav a {
@@ -63,15 +64,28 @@ nav a {
     margin-left: 2rem;
     font-weight: 500;
     transition: color 0.3s;
+    font-size: 1rem;
 }
 
 nav a:hover, nav a.active {
     color: var(--text-white);
 }
 
-/* Base Layout Sections */
+/* Hidden on desktop screens */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SECTIONS, CARDS & FLUID GRID CONTROLS
+   ========================================== */
 .section {
-    padding: 5rem 5%;
+    padding: clamp(3rem, 8vw, 5rem) 5%;
 }
 
 .section.dark {
@@ -81,7 +95,7 @@ nav a:hover, nav a.active {
 
 .section-title {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
     margin-bottom: 1rem;
     font-weight: 700;
 }
@@ -93,15 +107,16 @@ nav a:hover, nav a.active {
 .section-subtitle {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 3rem auto;
+    margin: 0 auto clamp(2rem, 6vw, 3rem) auto;
     color: var(--text-light);
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
 }
 
 .section.dark .section-subtitle {
     color: #94a3b8;
 }
 
-/* Buttons */
+/* Universal Button Handling */
 .btn {
     background-color: var(--primary);
     color: var(--text-white);
@@ -113,6 +128,7 @@ nav a:hover, nav a.active {
     transition: background-color 0.3s, transform 0.2s;
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn:hover {
@@ -131,7 +147,7 @@ nav a:hover, nav a.active {
     color: var(--bg-dark);
 }
 
-/* Universal Footer (Dark) */
+/* Universal Footer */
 footer {
     background-color: #020617;
     color: #64748b;
@@ -141,22 +157,80 @@ footer {
     border-top: 1px solid #1e293b;
 }
 
-/* Responsive Handling */
+/* ==========================================
+   RESPONSIVE DESIGN CONTROLS (MEDIA QUERIES)
+   ========================================== */
+
+/* Tablet & Large Phone Screen Breaks */
+@media (max-width: 900px) {
+    /* Transforms the desktop split-layout into clean vertical stacks */
+    .split-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+/* Mobile Screen Break */
 @media (max-width: 768px) {
-    header { flex-direction: column; gap: 1rem; text-align: center; }
-    nav a { margin: 0 0.8rem; font-size: 0.95rem; }
-    .section { padding: 3.5rem 5%; }
+    /* Display the navigation menu toggle bars */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Convert horizontal navigation bar into a modern drop-down overlay slide menu */
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--bg-dark);
+        padding: 1.5rem 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        border-top: 1px solid #1e293b;
+    }
+
+    /* Activated script-based class view layout options */
+    nav.mobile-active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 1rem 5%;
+        width: 100%;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+    
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    /* Make hero side-by-side action buttons collapse stacked safely on mobile screens */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        gap: 1rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
 }
 
 /* ==========================================
-   FLOATING WHATSAPP BUTTON STYLES
+   FLOATING WHATSAPP INTERFACE
    ========================================== */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
     background-color: #25d366;
-    border-radius: 50px;
+    border-radius: 50%;
     z-index: 1000;
     width: 60px;
     height: 60px;
@@ -165,12 +239,7 @@ footer {
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, background-color 0.3s;
-    
-    /* Official White WhatsApp Logo Graphic */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 34px;
+    text-decoration: none;
 }
 
 .whatsapp-float:hover {
@@ -178,7 +247,6 @@ footer {
     background-color: #128c7e;
 }
 
-/* Pulse ring animation */
 .whatsapp-float::before {
     content: '';
     position: absolute;
@@ -196,12 +264,15 @@ footer {
     100% { transform: scale(1.6); opacity: 0; }
 }
 
-@media (max-width: 768px) {
-    .whatsapp-float { 
-        bottom: 20px; 
-        right: 20px; 
-        width: 52px; 
-        height: 52px; 
-        background-size: 28px; 
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+    .whatsapp-float img {
+        width: 28px !important;
+        height: 28px !important;
     }
 }
