@@ -1,0 +1,78 @@
+<!-- Save as: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patelectrix | Major Appliance Repair Specialists</title>
+    <script src="https://cloudflare.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('https://unsplash.com') no-repeat center center/cover;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-white);
+            padding: 2rem;
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; max-width: 650px; margin-bottom: 2.5rem; color: #cbd5e1; }
+        .hero-actions { display: flex; gap: 1.5rem; }
+        .feature-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .feature-card { background: var(--card-white); padding: 3rem 2rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .feature-card i { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; }
+        @media (max-width: 480px) { .hero-actions { flex-direction: column; width: 100%; } .hero h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-wrench"></i> Pat<span>electrix</span></a>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="book.html">Book Online</a>
+            <a href="contant-faq.html">Contact & FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Engineered Solutions For Your Home Appliances</h1>
+            <p>Onsite diagnostics and premium mechanical repairs for built-in kitchens and laundry installations. Quick, reliable, and guaranteed.</p>
+            <div class="hero-actions">
+                <a href="book.html" class="btn">Book Repair Online</a>
+                <a href="services.html" class="btn secondary">View Our Services</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Why Choose Patelectrix?</h2>
+            <p class="section-subtitle">We protect your heavy household investments with professional diagnostic equipment and premium components.</p>
+            
+            <div class="feature-showcase">
+                <div class="feature-card">
+                    <i class="fa-solid fa-house-shield"></i>
+                    <h3>100% Onsite Service</h3>
+                    <p>No transport risks. Our technician completes diagnostic repairs directly within your laundry room or kitchen environment.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-certificate"></i>
+                    <h3>Certified Engineering</h3>
+                    <p>Advanced mastery of mechanical components, safety switches, gas standards, and inverter systems.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Patelectrix. All rights reserved. Major Appliance Field Services.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

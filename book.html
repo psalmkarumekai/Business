@@ -1,0 +1,75 @@
+<!-- Save as: book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Callout | Patelectrix</title>
+    <script src="https://cloudflare.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-layout { max-width: 700px; margin: 0 auto; background: var(--card-white); padding: 3.5rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 0.9rem; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; background: var(--bg-light); }
+        .form-control:focus { outline: 2px solid var(--primary); background: var(--card-white); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media (max-width: 600px) { .form-layout { padding: 2rem 1.5rem; } .form-row { grid-template-columns: 1fr; gap: 0; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-wrench"></i> Pat<span>electrix</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="book.html" class="active">Book Online</a>
+            <a href="contant-faq.html">Contact & FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2 class="section-title">Book an Onsite Inspection</h2>
+            <p class="section-subtitle">Secure an inspection slot instantly. Our vehicle fleet brings specialized replacement parts directly to your home.</p>
+            
+            <div class="form-layout">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label>Your Full Name</label>
+                        <input type="text" id="clientName" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Appliance Category</label>
+                            <select id="applianceSelect" class="form-control" required>
+                                <option value="" disabled selected>Choose type...</option>
+                                <option value="Refrigerator">Refrigerator / Freezer</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                                <option value="Tumble Dryer">Tumble Dryer</option>
+                                <option value="Oven / Range">Oven or Kitchen Stove</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Equipment Brand</label>
+                            <input type="text" class="form-control" placeholder="e.g. Bosch, Samsung, Whirlpool" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Explain the Malfunction</label>
+                        <textarea class="form-control" rows="4" placeholder="Describe the error codes or issues..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Confirm Diagnostic Booking</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Patelectrix. All rights reserved. Major Appliance Field Services.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!-- Save as: contact-faq.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support | Patelectrix</title>
+    <script src="https://cloudflare.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .split-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+        
+        /* Direct Contact Column styling */
+        .info-card { background: var(--bg-dark); color: var(--text-white); padding: 3rem 2.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .meta-row { display: flex; gap: 1.2rem; margin-top: 1.5rem; }
+        .meta-row i { color: var(--accent); font-size: 1.3rem; margin-top: 0.2rem; }
+        .quick-form { margin-top: 2.5rem; border-top: 1px solid #334155; padding-top: 2rem; }
+        .quick-form input, .quick-form textarea { width: 100%; padding: 0.8rem; background: #1e293b; border: 1px solid #334155; color: white; border-radius: 4px; margin-bottom: 1rem; }
+        
+        /* Interactive FAQ Stack styling */
+        .faq-stack { display: flex; flex-direction: column; gap: 1rem; }
+        .faq-item { background: var(--card-white); border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); overflow: hidden; border: 1px solid var(--border); }
+        .faq-trigger { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; background: var(--card-white); transition: background 0.3s; }
+        .faq-trigger:hover { background: #f1f5f9; }
+        .faq-trigger::after { content: "+"; font-size: 1.4rem; color: var(--primary); transition: transform 0.3s; }
+        .faq-panel { max-height: 0; overflow: hidden; padding: 0 1.5rem; color: var(--text-light); transition: max-height 0.3s ease, padding 0.3s ease; }
+        
+        /* Interactive visual dynamic triggers managed via global engine script */
+        .faq-item.active .faq-trigger { background: #f1f5f9; border-bottom: 1px solid var(--border); }
+        .faq-item.active .faq-trigger::after { content: "−"; transform: rotate(180deg); }
+        .faq-item.active .faq-panel { max-height: 200px; padding: 1.5rem; }
+
+        @media (max-width: 900px) { .split-layout { grid-template-columns: 1fr; gap: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-wrench"></i> Pat<span>electrix</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="book.html">Book Online</a>
+            <a href="contant-faq.html" class="active">Contact & FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2 class="section-title">Support & Queries</h2>
+            <p class="section-subtitle">Reach out to our field office directly or find immediate technical answers regarding common appliance concerns below.</p>
+            
+            <div class="split-layout">
+                <!-- Left Hand Side: Direct Contact Details & Quick Mailer Interface -->
+                <div class="contact-column">
+                    <div class="info-card">
+                        <h3>Direct Office Support</h3>
+                        <div class="meta-row">
+                            <i class="fa-solid fa-phone"></i>
+                            <div><h5>Callout Desk</h5><p>+27 (0) 74 526 0370</p></div>
+                        </div>
+                        <div class="meta-row">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div><h5>Electronic Mail</h5><p>support@patelectrix.com</p></div>
+                        </div>
+                    </div>
+
+                    <div class="quick-form">
+                        <h4 style="margin-bottom: 1rem;">Drop Us A Quick Message</h4>
+                        <form id="contactForm">
+                            <input type="email" id="contactEmail" placeholder="Your Email Address" required>
+                            <textarea rows="4" placeholder="How can our service team assist you today?" required></textarea>
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Hand Side: Dynamic FAQ Interactive Accordion Block Layout Setup -->
+                <div class="faq-column">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Frequently Answered Inquiries</h3>
+                    <div class="faq-stack">
+                        <div class="faq-item">
+                            <div class="faq-trigger">What are your baseline diagnostic check fees?</div>
+                            <div class="faq-panel"><p>We maintain an upfront call-out layout structure covering thorough machine electrical tracking diagnostic testing. If you approve our quoted restoration plan, the check fee counts directly towards the repair costs.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-trigger">Do you offer warranties on replaced parts?</div>
+                            <div class="faq-panel"><p>Yes, absolutely. Every physical component swap out we provide is backed by a full warranty on both parts and workmanship.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-trigger">Do you repair standard mobile tech or laptops?</div>
+                            <div class="faq-panel"><p>No, we do not. Patelectrix focuses exclusively on major home appliances like refrigerators, laundry machinery, built-in cooktops, and thermal kitchen heating units.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Patelectrix. All rights reserved. Major Appliance Field Services.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

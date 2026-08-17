@@ -1,0 +1,81 @@
+<!-- Save as: services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Patelectrix</title>
+    <script src="https://cloudflare.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .services-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .matrix-item { background: #1e293b; border: 1px solid #334155; padding: 2.5rem 2rem; border-radius: 8px; transition: transform 0.3s; }
+        .matrix-item:hover { transform: translateY(-5px); }
+        .matrix-item i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .matrix-item h3 { margin-bottom: 1rem; font-size: 1.4rem; color: var(--text-white); }
+        .matrix-item ul { list-style: none; margin-top: 1.5rem; }
+        .matrix-item ul li { margin-bottom: 0.5rem; font-size: 0.95rem; color: #94a3b8; display: flex; align-items: center; gap: 0.5rem; }
+        .matrix-item ul li::before { content: "✓"; color: var(--primary); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-wrench"></i> Pat<span>electrix</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="book.html">Book Online</a>
+            <a href="contant-faq.html">Contact & FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section dark">
+            <h2 class="section-title">Specialised Mechanical Repairs</h2>
+            <p class="section-subtitle">We work strictly with domestic home systems. Here is a breakdown of our capabilities.</p>
+            
+            <div class="services-matrix">
+                <div class="matrix-item">
+                    <i class="fa-solid fa-snowflake"></i>
+                    <h3>Refrigeration</h3>
+                    <p>Resolving structural cooling, digital compressor errors, and gas line breaks safely.</p>
+                    <ul>
+                        <li>Environmental structural regassing</li>
+                        <li>Thermostat array replacements</li>
+                        <li>Digital controller debugging</li>
+                    </ul>
+                </div>
+
+                <div class="matrix-item">
+                    <i class="fa-solid fa-soap"></i>
+                    <h3>Laundry Appliances</h3>
+                    <p>Tackling drum tracking, extreme vibrations, drain blockages, and system heat errors.</p>
+                    <ul>
+                        <li>Drive belt & bearing tracking</li>
+                        <li>Heavy duty pump replacement</li>
+                        <li>Dryer core heat configuration</li>
+                    </ul>
+                </div>
+
+                <div class="matrix-item">
+                    <i class="fa-solid fa-fire-burner"></i>
+                    <h3>Kitchen Cooktops</h3>
+                    <p>Restoring electrical ranges, faulty oven thermal rings, and broken induction modules.</p>
+                    <ul>
+                        <li>Thermal baking element swops</li>
+                        <li>Infinite switch diagnostics</li>
+                        <li>Safety seal adjustments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Patelectrix. All rights reserved. Major Appliance Field Services.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
