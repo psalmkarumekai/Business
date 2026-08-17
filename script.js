@@ -105,3 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+ // ==========================================
+    // 5. MOBILE NAVIGATION MENU TOGGLE
+    // ==========================================
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('nav');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            // Change menu icon between bars and X when toggled
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    }
